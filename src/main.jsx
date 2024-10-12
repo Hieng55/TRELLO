@@ -1,16 +1,22 @@
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
-import App from "./App.jsx"
+import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material"
 import CssBaseline from "@mui/material/CssBaseline"
-import { ThemeProvider } from "@mui/material/styles"
-import theme from "./theme"
+import theme from "./theme.js"
+import App from "./App.jsx"
 import "./index.css"
+
+function Main() {
+  return (
+    <CssVarsProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </CssVarsProvider>
+  )
+}
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
-    </ThemeProvider>
+    <Main />
   </StrictMode>
 )
