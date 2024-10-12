@@ -1,5 +1,5 @@
 // import React from "react"
-import SelectOpen from "../SelectOpen"
+import SelectOpen from "~/components/SelectOpen"
 import { Box, useColorScheme } from "@mui/material"
 
 const AppBar = () => {
