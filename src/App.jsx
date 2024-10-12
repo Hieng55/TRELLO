@@ -1,18 +1,19 @@
-import * as React from "react"
 import Button from "@mui/material/Button"
 import { AccessAlarm, ThreeDRotation } from "@mui/icons-material"
-
-// import "./App.css"
+import { useColorScheme } from "@mui/material/styles"
+import SelectCustomOption from "./selectMode"
 
 function App() {
+  const { mode, setMode } = useColorScheme()
+  if (!mode) {
+    return null
+  }
+  const handleChangeMode = (event) => {
+    setMode(event.target.value)
+  }
   return (
     <>
-      <div>hello Hiển</div>
-      <Button variant="contained">Hello world</Button>
-      <Button variant="text">Hello world</Button>
-      <Button variant="outlined">Hello world</Button>
-      <AccessAlarm />
-      <ThreeDRotation />
+      <SelectCustomOption mode={mode} handleChangeMode={handleChangeMode} />
     </>
   )
 }
